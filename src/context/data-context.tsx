@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, type ReactNode, useCallback } from 'react';
@@ -187,8 +186,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
         );
     };
 
-
-    const addOrUpdatePackage = useCallback((pkg: Package) => {
+    // ✅ FIXED HERE
+    const addOrUpdatePackage = useCallback(async (pkg: Package): Promise<void> => {
         setPackages(prev => {
             const existingIndex = prev.findIndex(p => p.id === pkg.id);
             let newPackages;
